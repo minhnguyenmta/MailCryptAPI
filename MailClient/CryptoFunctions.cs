@@ -105,7 +105,7 @@ namespace MailClient
                 return null;
             }
         }
-
+        
         public static byte[] ComputeSHA256hash(byte[] data)
         {
             try
@@ -121,6 +121,41 @@ namespace MailClient
             {
                 Console.WriteLine(ex.Message);
                 return null;
+            }
+        }
+
+        public static byte[] RSASign(byte[] dataToSign, RSAParameters RSAKey, object hashAlgor)
+        {
+            try
+            {
+                RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();
+
+                RSAalg.ImportParameters(RSAKey);
+
+                //Hash and sign
+                return RSAalg.SignData(dataToSign, hashAlgor);   //default hashAlgor is SHA256
+            }
+            catch (CryptographicException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public static bool RSAVerify(byte[] dataToVerify, byte[] signeddata, RSAParameters RSAKey, object hashAlgor)
+        {
+            try
+            {
+                RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();
+                RSAalg.ImportParameters(RSAKey);
+
+                //Verify
+                return RSAalg.VerifyData(dataToVerify, hashAlgor, signeddata);
+            }
+            catch (CryptographicException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
     }

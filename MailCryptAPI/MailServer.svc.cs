@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -21,6 +22,20 @@ namespace MailCryptAPI
 
             return pubk;
             //throw new NotImplementedException();
+        }
+
+        public Stream sendSignInInfo(string username, string password)
+        {
+            throw new NotImplementedException();
+            //return new FileStream("");
+        }
+
+        public void sendSignUpInfo(string username, string password, Stream publickey, Stream encryptedPrivatekey)
+        {
+            //Xử lý các stream và truy vấn
+
+            publickey.Close();
+            encryptedPrivatekey.Close();
         }
     }
 }

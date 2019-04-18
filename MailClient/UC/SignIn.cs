@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MailClient.UC
 {
-    public delegate void SignInHandler();
+    public delegate void SignInHandler(string passwd);
 
     public partial class SignIn: UserControl
     {
@@ -36,7 +36,9 @@ namespace MailClient.UC
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (Login(txtUsername.Text, txtPassword.Text) == false)   //Đăng nhập không thành công
+            string uname = txtUsername.Text;
+            string passwd = txtPassword.Text;
+            if (!Login(uname, passwd))   //Đăng nhập không thành công
             {
                 lblError.Visible = true;
             }
@@ -44,7 +46,7 @@ namespace MailClient.UC
             {
                 //screenname = "Main";
                 //Signin?.Invoke();
-                Signin.Invoke();
+                Signin.Invoke(passwd);
             }
         }
 

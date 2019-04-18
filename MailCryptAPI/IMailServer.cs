@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -14,5 +15,11 @@ namespace MailCryptAPI
     {
         [OperationContract]
         string getPublicKey(string username);
+
+        [OperationContract]
+        void sendSignUpInfo(string username, string password, Stream publickey, Stream encryptedPrivatekey);
+
+        [OperationContract]
+        Stream sendSignInInfo(string username, string password);
     }
 }

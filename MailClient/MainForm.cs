@@ -13,13 +13,17 @@ namespace MailClient
 {
     public partial class MainForm : Form
     {
+        string apppassword;
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void ChangeUI()
+        private void ChangeUI(string passwd)
         {
+            apppassword = passwd;
+
             pnlMain.Controls.Clear();
             MainUI ucMain = new MainUI();
             ucMain.Dock = DockStyle.Fill;
