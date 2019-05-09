@@ -98,5 +98,7 @@ namespace MailCryptAPI.Business
                 store.Close();
             }
         }
+
+        //cert = rsa.Key.CreateSelfSignedCertificate(new X500DistinguishedName("CN=something"));
     }
 }

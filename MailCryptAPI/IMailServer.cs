@@ -14,6 +14,9 @@ namespace MailCryptAPI
     public interface IMailServer
     {
         [OperationContract]
+        bool signIn(string username, string password);
+
+        [OperationContract]
         string getPublicKey(string username);
 
         [OperationContract]
@@ -21,5 +24,11 @@ namespace MailCryptAPI
 
         [OperationContract]
         Stream sendSignInInfo(string username, string password);
+
+        [OperationContract]
+        void sendEncryptedMail(string senderName);
+
+        //[OperationContract]
+        //Hàm lấy thư về để đọc
     }
 }

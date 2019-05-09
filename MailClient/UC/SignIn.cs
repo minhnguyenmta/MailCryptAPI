@@ -52,6 +52,8 @@ namespace MailClient.UC
 
         private bool Login(string username, string password)
         {
+            //Phải dùng hàm SignIn của service
+
             return true; //Demo! Test event xong tính sau :3
         }
     }

@@ -24,7 +24,7 @@ namespace MailCryptAPI.DataServer
         }
 
         protected SQLaccess() {
-            connectionString = @"Data Source=PC\SQLEXPRESS;;Initial Catalog=MailCryptDB;Integrated Security=True";
+            connectionString = @"Data Source=PC\SQLEXPRESS;Initial Catalog=MailCryptDB;Integrated Security=True";
         }
 
         private SqlConnection getConnection(string connectionString)

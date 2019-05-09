@@ -141,14 +141,14 @@ namespace MailClient
                 return null;
             }
         }
-
+        
         public static bool RSAVerify(byte[] dataToVerify, byte[] signeddata, RSAParameters RSAKey, object hashAlgor)
         {
             try
             {
                 RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();
                 RSAalg.ImportParameters(RSAKey);
-
+                
                 //Verify
                 return RSAalg.VerifyData(dataToVerify, hashAlgor, signeddata);
             }
