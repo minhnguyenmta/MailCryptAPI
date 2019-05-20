@@ -101,7 +101,7 @@ namespace MailClient
             return xmlString;
         }
 
-        public static void GenerateEncryptedPrivFile(string xmlstring, string password, string algorname = null)
+        public static string GenerateEncryptedPrivFile(string xmlstring, string uname, string password = null, string algorname = null)
         {
             byte[] encryptedData;
             string ivstring = null;
@@ -152,7 +152,8 @@ namespace MailClient
 
             try
             {
-                StreamWriter fout = new StreamWriter("XXX.encprk"); //User's encrypted private key file. It will be stored temporarily in another client app's folder
+                string filename = @"PrivK\" + uname + ".encprk";
+                StreamWriter fout = new StreamWriter(filename); //User's encrypted private key file. It will be stored temporarily in another client app's folder
                 fout.WriteLine(PRIVKEY_HEADER);
                 if (algorname != null)
                 {
@@ -170,10 +171,12 @@ namespace MailClient
                 fout.WriteLine(PRIVKEY_FOOTER);
 
                 fout.Close();
+
+                return filename;
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
             
         }

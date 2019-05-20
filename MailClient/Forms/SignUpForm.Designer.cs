@@ -164,6 +164,7 @@
             this.chbAcceptTerm.TabIndex = 13;
             this.chbAcceptTerm.Text = "I have read the terms of use and I accept these terms.";
             this.chbAcceptTerm.UseVisualStyleBackColor = true;
+            this.chbAcceptTerm.CheckedChanged += new System.EventHandler(this.chbAcceptTerm_CheckedChanged);
             // 
             // btnSignUp
             // 
@@ -173,6 +174,7 @@
             this.btnSignUp.TabIndex = 14;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = true;
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // btnClose
             // 
@@ -182,6 +184,7 @@
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // SignUpForm
             // 

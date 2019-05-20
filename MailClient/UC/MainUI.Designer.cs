@@ -43,14 +43,14 @@
             this.tbpReceive = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lsvMail = new System.Windows.Forms.ListView();
-            this.lblSender = new System.Windows.Forms.Label();
-            this.lblSubject = new System.Windows.Forms.Label();
-            this.lblContent1 = new System.Windows.Forms.Label();
-            this.lblNotifyImage = new System.Windows.Forms.Label();
-            this.lblNotify = new System.Windows.Forms.Label();
-            this.txtSender = new System.Windows.Forms.TextBox();
-            this.txtSubject = new System.Windows.Forms.TextBox();
             this.txtContent1 = new System.Windows.Forms.TextBox();
+            this.txtSubject = new System.Windows.Forms.TextBox();
+            this.txtSender = new System.Windows.Forms.TextBox();
+            this.lblNotify = new System.Windows.Forms.Label();
+            this.lblNotifyImage = new System.Windows.Forms.Label();
+            this.lblContent1 = new System.Windows.Forms.Label();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.lblSender = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tbpSend.SuspendLayout();
             this.pnlComposeSend.SuspendLayout();
@@ -106,6 +106,7 @@
             this.btnSend.TabIndex = 8;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnEncrypt
             // 
@@ -115,6 +116,7 @@
             this.btnEncrypt.TabIndex = 7;
             this.btnEncrypt.Text = "Encrypt this mail";
             this.btnEncrypt.UseVisualStyleBackColor = true;
+            this.btnEncrypt.Click += new System.EventHandler(this.btnEncrypt_Click);
             // 
             // btnSign
             // 
@@ -124,6 +126,7 @@
             this.btnSign.TabIndex = 6;
             this.btnSign.Text = "Sign this mail";
             this.btnSign.UseVisualStyleBackColor = true;
+            this.btnSign.Click += new System.EventHandler(this.btnSign_Click);
             // 
             // txtContent
             // 
@@ -220,33 +223,42 @@
             this.lsvMail.TabIndex = 0;
             this.lsvMail.UseCompatibleStateImageBehavior = false;
             this.lsvMail.View = System.Windows.Forms.View.List;
+            this.lsvMail.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lsvMail_ItemSelectionChanged);
             // 
-            // lblSender
+            // txtContent1
             // 
-            this.lblSender.AutoSize = true;
-            this.lblSender.Location = new System.Drawing.Point(32, 41);
-            this.lblSender.Name = "lblSender";
-            this.lblSender.Size = new System.Drawing.Size(57, 13);
-            this.lblSender.TabIndex = 0;
-            this.lblSender.Text = "From:        ";
+            this.txtContent1.Location = new System.Drawing.Point(35, 141);
+            this.txtContent1.Multiline = true;
+            this.txtContent1.Name = "txtContent1";
+            this.txtContent1.ReadOnly = true;
+            this.txtContent1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtContent1.Size = new System.Drawing.Size(530, 215);
+            this.txtContent1.TabIndex = 7;
             // 
-            // lblSubject
+            // txtSubject
             // 
-            this.lblSubject.AutoSize = true;
-            this.lblSubject.Location = new System.Drawing.Point(32, 83);
-            this.lblSubject.Name = "lblSubject";
-            this.lblSubject.Size = new System.Drawing.Size(57, 13);
-            this.lblSubject.TabIndex = 1;
-            this.lblSubject.Text = "Title:         ";
+            this.txtSubject.Location = new System.Drawing.Point(104, 80);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.ReadOnly = true;
+            this.txtSubject.Size = new System.Drawing.Size(461, 20);
+            this.txtSubject.TabIndex = 6;
             // 
-            // lblContent1
+            // txtSender
             // 
-            this.lblContent1.AutoSize = true;
-            this.lblContent1.Location = new System.Drawing.Point(32, 124);
-            this.lblContent1.Name = "lblContent1";
-            this.lblContent1.Size = new System.Drawing.Size(56, 13);
-            this.lblContent1.TabIndex = 2;
-            this.lblContent1.Text = "Content:   ";
+            this.txtSender.Location = new System.Drawing.Point(104, 38);
+            this.txtSender.Name = "txtSender";
+            this.txtSender.ReadOnly = true;
+            this.txtSender.Size = new System.Drawing.Size(461, 20);
+            this.txtSender.TabIndex = 5;
+            // 
+            // lblNotify
+            // 
+            this.lblNotify.AutoSize = true;
+            this.lblNotify.Location = new System.Drawing.Point(101, 383);
+            this.lblNotify.Name = "lblNotify";
+            this.lblNotify.Size = new System.Drawing.Size(106, 13);
+            this.lblNotify.TabIndex = 4;
+            this.lblNotify.Text = "NOT VERIFIED YET";
             // 
             // lblNotifyImage
             // 
@@ -259,40 +271,32 @@
             this.lblNotifyImage.TabIndex = 3;
             this.lblNotifyImage.Text = "    ";
             // 
-            // lblNotify
+            // lblContent1
             // 
-            this.lblNotify.AutoSize = true;
-            this.lblNotify.Location = new System.Drawing.Point(101, 383);
-            this.lblNotify.Name = "lblNotify";
-            this.lblNotify.Size = new System.Drawing.Size(106, 13);
-            this.lblNotify.TabIndex = 4;
-            this.lblNotify.Text = "NOT VERIFIED YET";
+            this.lblContent1.AutoSize = true;
+            this.lblContent1.Location = new System.Drawing.Point(32, 124);
+            this.lblContent1.Name = "lblContent1";
+            this.lblContent1.Size = new System.Drawing.Size(56, 13);
+            this.lblContent1.TabIndex = 2;
+            this.lblContent1.Text = "Content:   ";
             // 
-            // txtSender
+            // lblSubject
             // 
-            this.txtSender.Location = new System.Drawing.Point(104, 38);
-            this.txtSender.Name = "txtSender";
-            this.txtSender.ReadOnly = true;
-            this.txtSender.Size = new System.Drawing.Size(461, 20);
-            this.txtSender.TabIndex = 5;
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Location = new System.Drawing.Point(32, 83);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(57, 13);
+            this.lblSubject.TabIndex = 1;
+            this.lblSubject.Text = "Title:         ";
             // 
-            // txtSubject
+            // lblSender
             // 
-            this.txtSubject.Location = new System.Drawing.Point(104, 80);
-            this.txtSubject.Name = "txtSubject";
-            this.txtSubject.ReadOnly = true;
-            this.txtSubject.Size = new System.Drawing.Size(461, 20);
-            this.txtSubject.TabIndex = 6;
-            // 
-            // txtContent1
-            // 
-            this.txtContent1.Location = new System.Drawing.Point(35, 141);
-            this.txtContent1.Multiline = true;
-            this.txtContent1.Name = "txtContent1";
-            this.txtContent1.ReadOnly = true;
-            this.txtContent1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtContent1.Size = new System.Drawing.Size(530, 215);
-            this.txtContent1.TabIndex = 7;
+            this.lblSender.AutoSize = true;
+            this.lblSender.Location = new System.Drawing.Point(32, 41);
+            this.lblSender.Name = "lblSender";
+            this.lblSender.Size = new System.Drawing.Size(57, 13);
+            this.lblSender.TabIndex = 0;
+            this.lblSender.Text = "From:        ";
             // 
             // MainUI
             // 
@@ -301,6 +305,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MainUI";
             this.Size = new System.Drawing.Size(840, 511);
+            this.Load += new System.EventHandler(this.MainUI_Load);
             this.tabControl1.ResumeLayout(false);
             this.tbpSend.ResumeLayout(false);
             this.pnlComposeSend.ResumeLayout(false);

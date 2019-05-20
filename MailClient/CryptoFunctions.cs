@@ -137,7 +137,7 @@ namespace MailClient
             }
             catch (CryptographicException ex)
             {
-                Console.WriteLine(ex.Message);
+                throw ex;
                 return null;
             }
         }
@@ -154,7 +154,8 @@ namespace MailClient
             }
             catch (CryptographicException ex)
             {
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
+                throw ex;
                 return false;
             }
         }
